@@ -1,5 +1,6 @@
 package com.micro.school.controller;
 
+import com.micro.school.entity.FullSchoolResponce;
 import com.micro.school.entity.School;
 import com.micro.school.service.SchoolImplement;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,10 @@ public class SchoolController {
 
         return schoolImplement.getSchools();
     }
+    @GetMapping("/with-students/{school-id}")
+    @ResponseStatus(HttpStatus.OK)
+    public FullSchoolResponce getSchoolById(@PathVariable("school-id") Integer schoolId) {
+       return schoolImplement.getSchoolWithStudents(schoolId);
+
+    };
 }

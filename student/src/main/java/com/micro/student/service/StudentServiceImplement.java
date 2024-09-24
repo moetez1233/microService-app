@@ -21,4 +21,9 @@ public class StudentServiceImplement implements StudentImplement{
     public List<Student> getStudents() {
         return studentRepository.findAll();
     }
+
+    @Override
+    public List<Student> findAllBySchoolId(Integer schoolId) {
+        return studentRepository.findStudentBySchoolId(schoolId);
+    }
 }

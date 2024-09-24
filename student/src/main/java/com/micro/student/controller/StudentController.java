@@ -26,4 +26,10 @@ public class StudentController {
     public List<Student> getAllStudents(){
         return studentImplement.getStudents();
     }
+
+    @GetMapping("/school/{schoolId}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Student> findAllStudentBySchoolId(@PathVariable("schoolId") Integer schoolId){
+        return studentImplement.findAllBySchoolId(schoolId);
+    }
 }
