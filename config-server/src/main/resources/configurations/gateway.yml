@@ -20,7 +20,10 @@ spring:
             - Path=/api/v1/schools/**
   application:
     name: gateway
-
+management:
+  tracing:
+    sampling:
+      probability: 1.0
 
 
 

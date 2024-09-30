@@ -4,6 +4,8 @@ import com.micro.school.entity.FullSchoolResponce;
 import com.micro.school.entity.School;
 import com.micro.school.repository.SchoolRepository;
 import com.micro.school.service.client.StudentClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import java.util.List;
 
 @Service
 public class SchoolServiceImplement implements SchoolImplement {
+    Logger logger= LoggerFactory.getLogger(SchoolServiceImplement.class);
     @Autowired
     private SchoolRepository schoolRepository;
 
@@ -33,6 +36,7 @@ public class SchoolServiceImplement implements SchoolImplement {
                 null
         );
         var students = studentClient.findAllStudentBySchoolId(schoolId);
+        logger.info("student list : ====> "+students.toString());
         FullSchoolResponce fullSchoolResponce=new FullSchoolResponce();
         fullSchoolResponce.setStudents(students);
         fullSchoolResponce.setEmail(school.getEmail());
