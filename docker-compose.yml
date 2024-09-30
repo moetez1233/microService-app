@@ -27,12 +27,6 @@ services:
     networks:
       - postgres
     restart: unless-stopped
-  my-loki:
-    image: grafana/loki:main
-    container_name: my-loki
-    command: [ "-config.file=/etc/loki/local-config.yaml" ]
-    ports:
-      - "3100:3100"
   zipkin:
     container_name: zipkin
     image: openzipkin/zipkin
